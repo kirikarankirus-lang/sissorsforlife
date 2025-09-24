@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>18 Sunderland Street | Sissorsforlife Real Estate</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #f7f8fa;
+      margin: 0;
+      padding: 0;
+      color: #2c3e50;
+    }
+    .header {
+      background-color: #0e4959;
+      color: #fff;
+      padding: 2rem 1rem 1rem 1rem;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    .header p {
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+    .container {
+      max-width: 700px;
+      margin: 2rem auto;
+      background: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      padding: 2rem;
+    }
+    .features {
+      margin: 2rem 0;
+      padding-left: 1.2rem;
+    }
+    .features li {
+      margin-bottom: 1rem;
+      font-size: 1.08rem;
+    }
+    .cta {
+      margin: 2rem 0 0 0;
+      text-align: center;
+    }
+    .cta button {
+      background: #0e4959;
+      color: #fff;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 0.3rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .cta button:hover {
+      background: #187a8c;
+    }
+    .footer {
+      margin-top: 2rem;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.98rem;
+      color: #666;
+      background: #e6eef1;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>18 Sunderland Street</h1>
+    <p>Presented by Sissorsforlife Real Estate</p>
+  </div>
+  <div class="container">
+    <h2>Your Dream Home Awaits!</h2>
+    <p>
+      Discover the perfect blend of comfort, style, and convenience at <strong>18 Sunderland Street</strong>. This stunning residence offers spacious living areas, modern finishes, and a prime location near schools, shops, parks, and public transport.
+    </p>
+    <ul class="features">
+      <li><strong>Spacious Floor Plan:</strong> Generously sized rooms for relaxation and entertainment.</li>
+      <li><strong>Modern Kitchen:</strong> Sleek, updated kitchen with premium appliances and ample storage.</li>
+      <li><strong>Light-Filled Living Areas:</strong> Large windows invite natural light for a warm, inviting atmosphere.</li>
+      <li><strong>Outdoor Retreat:</strong> Private backyard perfect for gatherings, gardening, or relaxing.</li>
+      <li><strong>Prime Location:</strong> Friendly neighborhood just minutes from key amenities.</li>
+    </ul>
+    <div class="cta">
+      <p style="font-size: 1.15rem; font-weight: 500;">
+        Ready to make 18 Sunderland Street your new address?
+      </p>
+      <button onclick="openContact()">Book a Viewing</button>
+    </div>
+  </div>
+  <div class="footer">
+    Sissorsforlife – Your trusted partner in real estate.<br>
+    <span id="contact-info" style="display:none;">
+      <strong>Contact:</strong> info@sissorsforlife.com | (555) 123-4567
+    </span>
+  </div>
+  <script>
+    function openContact() {
+      document.getElementById('contact-info').style.display = 'inline';
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
