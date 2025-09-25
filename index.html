@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>House Listings Search</title>
+    <title>House Listings App</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 40px; }
+        .navbar {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        .nav-icon {
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        .active { opacity: 1; }
+        .screen { display: none; }
+        .screen.active { display: block; }
         .listing { border: 1px solid #ccc; padding: 16px; margin-bottom: 20px; border-radius: 8px; }
         .notfound { color: red; font-weight: bold; }
         input[type="text"] { width: 300px; padding: 8px; }
@@ -12,26 +27,79 @@
     </style>
 </head>
 <body>
-    <h1>Search House Listings</h1>
-    <form id="searchForm">
-        <input type="text" id="addressInput" placeholder="Enter address to search" required>
-        <button type="submit">Search</button>
-    </form>
-    <div id="results"></div>
+    <!-- Navigation bar with icons -->
+    <div class="navbar">
+        <!-- Home Icon (SVG) -->
+        <svg id="homeIcon" class="nav-icon active" viewBox="0 0 24 24" fill="none">
+            <path d="M3 9.5L12 3L21 9.5V20C21 20.55 20.55 21 20 21H4C3.45 21 3 20.55 3 20V9.5Z" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="8" y="13" width="8" height="8" rx="1" fill="#333" opacity="0.15"/>
+        </svg>
+        <!-- Search Icon (SVG) -->
+        <svg id="searchIcon" class="nav-icon" viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="7" stroke="#333" stroke-width="2"/>
+            <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </div>
+
+    <!-- Home Screen -->
+    <div id="homeScreen" class="screen active">
+        <h1>Welcome to House Listings!</h1>
+        <p>Click the <b>search icon</b> to find your dream home.</p>
+        <ul>
+            <li>See all available listings</li>
+            <li>Search by address</li>
+            <li>Easy navigation</li>
+        </ul>
+    </div>
+
+    <!-- Search Screen -->
+    <div id="searchScreen" class="screen">
+        <h1>Search House Listings</h1>
+        <form id="searchForm">
+            <input type="text" id="addressInput" placeholder="Enter address to search" required>
+            <button type="submit">Search</button>
+        </form>
+        <div id="results"></div>
+    </div>
 
     <script>
+        // Navigation logic
+        const homeIcon = document.getElementById('homeIcon');
+        const searchIcon = document.getElementById('searchIcon');
+        const homeScreen = document.getElementById('homeScreen');
+        const searchScreen = document.getElementById('searchScreen');
+
+        function showScreen(screen) {
+            homeScreen.classList.remove('active');
+            searchScreen.classList.remove('active');
+            homeIcon.classList.remove('active');
+            searchIcon.classList.remove('active');
+
+            if (screen === 'home') {
+                homeScreen.classList.add('active');
+                homeIcon.classList.add('active');
+            } else {
+                searchScreen.classList.add('active');
+                searchIcon.classList.add('active');
+            }
+        }
+
+        homeIcon.addEventListener('click', () => showScreen('home'));
+        searchIcon.addEventListener('click', () => showScreen('search'));
+
         // Sample house listings
         const listings = [
             {
                 address: "18 Sunderland Street",
-                price: "$908,067",
+                price: "$650,000
+                    ",
                 bedrooms: 3,
                 bathrooms: 2,
                 description: "Cozy family home with garden."
             },
             {
                 address: "4a Marieville Street",
-                price: "$580,160",
+                price: "$2500",
                 bedrooms: 4,
                 bathrooms: 3,
                 description: "Spacious townhouse near city center."
